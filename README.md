@@ -27,7 +27,6 @@ Type: `object`
 - {String} **from** - The path relative from.
 - {String} **to** - The path relative to.
 
-
 ###### Options example:
 ```javascript
 relativeReplace({

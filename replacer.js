@@ -1,25 +1,59 @@
 var path = require('path');
+var fs = require('fs');
+
+
+var getDirname = function(_path){
+  var dirname;
+  //end with '/'
+  if(/\/$/.test(_path)){
+    dirname = _path;
+  }else{
+    if(fs.existsSync(_path)){
+      if(fs.statSync(_path).isDirectory()){
+        dirname = options.src;
+      }else{
+        dirname = path.dirname(options.src);
+      }
+    }else{
+      dirname = path.dirname(options.src);
+    }
+  }
+
+  return dirname;
+};
+
+var getRelative = function(from , to){
+  var relative = path.relative(from , to);
+  if(relative){
+    relative = relative.replace(/\\/g , '/');
+
+   if(!/\/$/.test(relative)){
+      relative += '/';
+    }
+  }
+
+  return relative;
+};
 
 module.exports = function(content , file , options){
   var from = options.from;
   var to = options.to;
 
-  if(!from && !to){
-    from = file.base;
-  }
-
-  var relative;
-  var dirname = path.dirname(file.path);
   if(from){
-    relative = path.relative(from , dirname);
+    from = getDirname(from);
   }else{
-    relative = path.relative(dirname , to);
+    from = path.dirname(file.path);
   }
 
-  if(relative){
-    relative = relative.replace('\\' , '/') += '/';
+  if(to){
+    to = getDirname(to);
+  }else{
+    to = path.dirname(file.path);
   }
 
 
-  return content.replace(options.placeholder , relative);
+  var relative = getRelative(from , to);
+
+
+  return content.replace(new RegExp(options.placeholder , 'g') , relative);
 };
