@@ -18,6 +18,7 @@ module.exports = function(options){
     var parser = new Parser(file , options);
 
     if (file.isStream()) {
+
       file.contents = file.contents.pipe(parser);
       return callback(null , file);
     }
@@ -26,7 +27,7 @@ module.exports = function(options){
       parser.write(file.contents);
       parser.end();
 
-      var contents = new Buffer(0);
+      var contents = new Buffer('');
       parser.on('data', function (data) {
           contents = Buffer.concat([contents, data]);
       });

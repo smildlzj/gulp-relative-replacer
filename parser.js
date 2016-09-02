@@ -12,7 +12,12 @@ function Parser(file , options) {
 util.inherits(Parser, Transform);
 
 Parser.prototype._transform = function (chunk, enc, done) {
-    var content = chunk.toString('utf8');
+    var content = chunk.toString();
+
+    if(content.indexOf(this.options.placeholder) == -1){
+      done(null, chunk);
+      return;
+    }
 
     done(null, replacer(content , this.file , this.options));
 };
