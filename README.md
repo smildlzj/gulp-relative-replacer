@@ -1,6 +1,15 @@
-# gulp-relative-replace [![NPM version][npm-image]][npm-url] 
+# gulp-relative-replace 
+[![NPM version](https://img.shields.io/npm/v/gulp-relative-replace.svg)](https://www.npmjs.com/package/gulp-relative-replace)
+[![Download stats](https://img.shields.io/npm/dm/gulp-relative-replace.svg)](https://www.npmjs.com/package/gulp-relative-replace)
+
+
+[![NPM stats](https://nodei.co/npm/gulp-relative-replace.svg?downloadRank=true&downloads=true)](https://www.npmjs.org/package/gulp-relative-replace)
+
+
 > Replace build placeholder to relative path.
  
+
+
 
 ### Table of Contents
 
@@ -86,5 +95,3 @@ Result:
     <img src="../imgs/bg.jpg">
 ```
 
-[npm-url]: https://npmjs.org/package/gulp-relative-replace
-[npm-image]: http://img.shields.io/npm/v/gulp-relative-replace.svg
