@@ -1,6 +1,6 @@
 {
   "name": "gulp-relative-replace",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Replace build placeholder to relative path.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "name": "ZhuJun Lu",
     "email": "24comic@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/smildlzj/gulp-relative-replacer/issues"
   },

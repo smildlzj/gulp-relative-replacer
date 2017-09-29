@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 
 
-var getDirname = function(_path){
+var getDirname = function(_path, options){
   var dirname;
   //end with '/'
   if(/\/$/.test(_path)){
@@ -40,7 +40,7 @@ module.exports = function(content , file , options){
   var to = options.to;
 
   if(from){
-    from = getDirname(from);
+    from = getDirname(from, options);
   }else{
     from = path.dirname(file.path);
   }

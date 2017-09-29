@@ -1,7 +1,6 @@
 var through2 = require('through2');
 var gutil = require('gulp-util');
 var Parser = require('./parser');
-var replacer = require('./replacer');
 
 module.exports = function(options){
   options = options || {};
