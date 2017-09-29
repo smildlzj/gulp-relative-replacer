@@ -46,7 +46,7 @@ module.exports = function(content , file , options){
   }
 
   if(to){
-    to = getDirname(to);
+    to = getDirname(to, options);
   }else{
     to = path.dirname(file.path);
   }
